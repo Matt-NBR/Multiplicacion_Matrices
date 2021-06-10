@@ -1,0 +1,55 @@
+print("Calculadora de producto de matrices \n")
+# Se ingresa las dimensiones de las dos matrices
+f1 = int(input("Ingrese el numero de filas de la primera matriz: "))
+c1 = int(input("Ingrese el numero de columnas de la primera matriz: "))
+f2 = int(input("Ingrese el numero de filas de la segunda matriz: "))
+c2 = int(input("Ingrese el numero de columnas de la segunda matriz: "))
+# Se verifica que la multiplicacion sea posible
+if(c1 != f2):
+    print("La multiplicacion no esta definida para matrices de estas dimensiones \n")
+    print("el numero de columnas de la primera matriz debe ser igual al numero de filas de la segunda \n")
+else:
+    print("La multiplicacion es valida con estas dimensiones \n")
+    # Se ingresa los elementos de la primera matriz y se la imprime
+    m1 = []
+    print("Ingrese los elementos de la primera matriz en orden de filas \n")
+    for i in range(f1):
+        a = []
+        for j in range(c1):
+            a.append(int(input()))
+        m1.append(a)
+    print ("La primera matriz es: \n")
+    for i in range(f1):
+        for j in range(c1):
+            print(m1[i][j], end= " ")
+        print()
+    # Se ingresa los elementos de la segunda matriz y se la imprime
+    m2 = []
+    print("\nIngrese los elementos de la segunda matriz en orden de filas \n")
+    for i in range(f2):
+        b = []
+        for j in range(c2):
+            b.append(int(input()))
+        m2.append(b)
+    print ("La segunda matriz es: \n")
+    for i in range(f2):
+        for j in range(c2):
+            print(m2[i][j], end= " ")
+        print()
+    # Se crea una matriz resultado de la dimension correspondiente y se fijan todos sus elementos en 0
+    print ("\nEl producto de las matrices es: \n")
+    mr = []
+    for i in range(f1):
+        c = []
+        for j in range(c2):
+            c.append(0)
+        mr.append(c)
+    # Se ejecuta el producto iterando sobre las filas de m1, las columnas de m2 y las filas de m2
+    # El resultado se añade a la matriz resultado sumando con sus 0
+    for i in range(len(m1)):
+        for j in range(len(m2[0])):
+            for k in range(len(m2)):
+                mr[i][j] += m1[i][k] * m2[k][j]
+    # Se imprime la matriz resultado
+    for i in mr:
+        print(i)
